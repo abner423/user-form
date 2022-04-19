@@ -1,22 +1,24 @@
-import logo from './logo.svg';
+import landingPage from './assets/landingPage.gif';
 import './App.css';
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='App-div-row'>
+          <span className='App-div-intro'>
+            <h2 className='App-div-animation typing-animation'>Construa novas conexões</h2>
+            Aqui você pode conhecer mais pessoas através de uma interação única
+            proporcionando amizades jamais esperadas, dos mais diversos lugares do planeta! Faça seu cadastro, e desfrute
+            desse mundo virtual!
+          </span>
+          <img src={landingPage} alt="gif" />
+        </div>
+
+        <Link to="/signup">
+          <button className="App-button"> Sign up</button>
+        </Link>
       </header>
     </div>
   );

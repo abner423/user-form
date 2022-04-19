@@ -2,37 +2,68 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
+.App-button {
+  margin-top: 50px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 20px;
+  border-style: none;
+  background-color: #61dafb;
+  color: #ffffff;
+}
+
+.App-div-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.App-div-intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  width: 700px;
+  margin-right: 100px;
+}
+
+.App-div-animation{
+  border-right: 2px solid black;
   color: #61dafb;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 524px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.typing-animation{
+  animation: blinkCursor 700ms steps(40) infinite normal, 
+  typing 2s steps(40) 2s normal;
+}
+
+@keyframes blinkCursor {
+  from{
+    border-right-color: #61dafb;
   }
-  to {
-    transform: rotate(360deg);
+  to{
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from{
+    width: 0px;
+  }
+  to{
+    width: 524px;
   }
 }

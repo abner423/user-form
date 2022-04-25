@@ -19,6 +19,10 @@ function App() {
         <Link to="/signup">
           <button className="App-button"> Sign up</button>
         </Link>
+
+        <Link to="/dashboard">
+          <button className="App-button"> Acesse nossas salas</button>
+        </Link>
       </header>
     </div>
   );

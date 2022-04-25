@@ -2,8 +2,26 @@ import "./Signup.css";
 import Check from './assets/check.png';
 import Head from './assets/head.png';
 import Dotted from './assets/dotted.jpg';
+import { useState } from "react";
+
+import api from "./api";
 
 function Signup() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [resumo, setResumo] = useState("");
+
+  async function clique() {
+    console.log(`Nome: ${nome} / Email: ${email} / Resumo: ${resumo}`);
+    const data = {
+      nome,
+      email,
+      resumo
+    };
+    const response = await api.post("users", data);
+    console.log(response);
+  }
+
   return (
     <div className="signup">
       <div className="blue"></div>
@@ -21,15 +39,17 @@ function Signup() {
           </div>
 
           <div className="input">
-            <input placeholder="nome"></input>
+            <input placeholder="nome" value={nome} onChange={(e) => setNome(e.target.value)}></input>
           </div>
           <div className="input">
-            <input placeholder="nome@empresa.com"></input>
+            <input placeholder="nome@empresa.com" value={email} onChange={(e) => setEmail(e.target.value)}></input>
           </div>
           <div className="input">
-            <textarea cols={33} rows={10} placeholder="resumo sobre usuário"></textarea>
+            <textarea cols={33} rows={10} placeholder="resumo sobre usuário" value={resumo} onChange={(e) => setResumo(e.target.value)}></textarea>
           </div>
-          <button>cadastrar</button>
+          <button
+            onClick={clique}
+          >cadastrar</button>
         </div>
         <div className="box_right">
           <img className="head" src={Head} alt='head' />

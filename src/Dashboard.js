@@ -1,4 +1,5 @@
 import "./Dashboard.css";
+import React, { useState, useEffect } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import avatarUrso from './assets/avatar-urso.png';
@@ -8,8 +9,17 @@ import avatarAfro from './assets/avatar-afro.png';
 import avatarJason from './assets/avatar-jason.png';
 import avatarPreguica from './assets/avatar-preguica.png';
 import avatarZumbi from './assets/avatar-zumbi.png';
+import openSocket from "socket.io-client";
+
+const SERVER = "http://localhost:8080/";
 
 function Dashboard() {
+    useEffect(() => {
+        const socket = openSocket(SERVER, { transports: ['websocket'] });
+        socket.emit("message", "oi");
+    }, []);
+
+
     return (
         <div className="Dashboard">
             <div className="Dashboard-container">
